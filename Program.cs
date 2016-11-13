@@ -1,5 +1,6 @@
 ﻿using FileAnalysis.Base;
 using FileAnalysis.v1;
+using FileAnalysis.v2;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -67,14 +68,16 @@ namespace FileAnalysis
             }
         }
 
-        private static IParser GetParser(string v)
+        private static IParser GetParser(string version)
         {
-            switch (v)
+            switch (version)
             {
                 case "1":
                     return new v1Parser();
+                case "2":
+                    return new v2Parser();
                 default:
-                    throw new ArgumentOutOfRangeException(nameof(v), $"Unknown parser version {v}");
+                    throw new ArgumentOutOfRangeException(nameof(version), $"Unknown parser version {version}");
             }
         }
     }

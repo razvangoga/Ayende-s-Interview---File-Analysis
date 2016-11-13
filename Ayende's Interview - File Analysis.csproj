@@ -51,6 +51,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="v1\Record.cs" />
     <Compile Include="v1\v1Parser.cs" />
+    <Compile Include="v2\Record.cs" />
+    <Compile Include="v2\v2Parser.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -58,9 +60,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="v2\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
