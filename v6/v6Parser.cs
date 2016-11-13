@@ -47,7 +47,7 @@ namespace FileAnalysis.v6
             {
                 foreach (KeyValuePair<string, long> entry in totalDuration)
                 {
-                    output.WriteLine($"{entry.Key:D10} {entry.Value:c}");
+                    output.WriteLine($"{entry.Key:D10} {TimeSpan.FromTicks(entry.Value):c}");
                 }
             }
         }
