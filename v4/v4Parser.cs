@@ -6,15 +6,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FileAnalysis.v3
+namespace FileAnalysis.v4
 {
-    public class v3Parser : IParser
+    public class v4Parser : IParser
     {
         public string Name
         {
             get
             {
-                return "Read the file line by line with a StreamReader - keep the values in an internal dictionary for statistics";
+                return "Read the file line by line with a StreamReader - keep the values in an internal dictionary for statistics - parsing optimizations";
             }
         }
 
@@ -22,15 +22,15 @@ namespace FileAnalysis.v3
         {
             StreamReader file = new StreamReader(inputFileName);
             string line;
-            Dictionary<long, long> totalDuration = new Dictionary<long, long>();
+            Dictionary<string, long> totalDuration = new Dictionary<string, long>();
 
             while ((line = file.ReadLine()) != null)
             {
                 string[] lineItems = line.Split(Constants.Splitter, StringSplitOptions.RemoveEmptyEntries);
 
-                long id = long.Parse(lineItems[2]);
-                DateTime start = DateTime.Parse(lineItems[0]);
-                DateTime end = DateTime.Parse(lineItems[1]);
+                string id = lineItems[2];
+                DateTime start = DateTime.ParseExact(lineItems[0], "yyyy-MM-dd'T'HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.AssumeLocal);
+                DateTime end = DateTime.ParseExact(lineItems[1], "yyyy-MM-dd'T'HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.AssumeLocal);
 
                 long duration = (end - start).Duration().Ticks;
 
@@ -45,7 +45,7 @@ namespace FileAnalysis.v3
 
             using (var output = File.CreateText(outputFileName))
             {
-                foreach (KeyValuePair<long, long> entry in totalDuration)
+                foreach (KeyValuePair<string, long> entry in totalDuration)
                 {
                     output.WriteLine($"{entry.Key:D10} {entry.Value:c}");
                 }
