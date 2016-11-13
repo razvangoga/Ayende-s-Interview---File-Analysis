@@ -72,6 +72,7 @@
     <Compile Include="v3\v3Parser.cs" />
     <Compile Include="v4\v4Parser.cs" />
     <Compile Include="v5\v5Parser.cs" />
+    <Compile Include="v6\v6Parser.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

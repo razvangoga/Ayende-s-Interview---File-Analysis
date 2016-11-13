@@ -32,7 +32,7 @@ namespace FileAnalysis.v5
                 DateTime start = this.ParseDate(lineItems[0]);
                 DateTime end = this.ParseDate(lineItems[1]);
 
-                long duration = (end - start).Duration().Ticks;
+                long duration = (end - start).Ticks;
 
                 if (totalDuration.ContainsKey(id))
                     totalDuration[id] += duration;

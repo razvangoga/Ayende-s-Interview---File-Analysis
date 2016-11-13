@@ -32,7 +32,7 @@ namespace FileAnalysis.v4
                 DateTime start = DateTime.ParseExact(lineItems[0], "yyyy-MM-dd'T'HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.AssumeLocal);
                 DateTime end = DateTime.ParseExact(lineItems[1], "yyyy-MM-dd'T'HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.AssumeLocal);
 
-                long duration = (end - start).Duration().Ticks;
+                long duration = (end - start).Ticks;
 
                 if (totalDuration.ContainsKey(id))
                     totalDuration[id] += duration;
