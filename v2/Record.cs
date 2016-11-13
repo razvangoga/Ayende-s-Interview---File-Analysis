@@ -8,8 +8,6 @@ namespace FileAnalysis.v2
 {
     public class Record
     {
-        public static readonly char[] Splitter = new char[] { ' ' };
-
         public DateTime Start { get; set; }
 
         public DateTime End { get; set; }
@@ -19,7 +17,7 @@ namespace FileAnalysis.v2
 
         public Record(string line)
         {
-            string[] lineItems = line.Split(Splitter, StringSplitOptions.RemoveEmptyEntries);
+            string[] lineItems = line.Split(Constants.Splitter, StringSplitOptions.RemoveEmptyEntries);
 
             this.Start = DateTime.Parse(lineItems[0]);
             this.End = DateTime.Parse(lineItems[1]);

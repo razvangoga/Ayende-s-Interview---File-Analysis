@@ -1,6 +1,7 @@
 ﻿using FileAnalysis.Base;
 using FileAnalysis.v1;
 using FileAnalysis.v2;
+using FileAnalysis.v3;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -76,6 +77,8 @@ namespace FileAnalysis
                     return new v1Parser();
                 case "2":
                     return new v2Parser();
+                case "3":
+                    return new v3Parser();
                 default:
                     throw new ArgumentOutOfRangeException(nameof(version), $"Unknown parser version {version}");
             }
