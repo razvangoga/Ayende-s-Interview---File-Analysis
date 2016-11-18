@@ -1,30 +1,30 @@
 ﻿using FileAnalysis.Base;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FileAnalysis.v5
+namespace FileAnalysis.v7
 {
-    public class v5Parser : IParser
+    public class v7Parser : IParser
     {
         public string Name
         {
             get
             {
-                return "v5- Read the file line by line with a StreamReader / internal dictionary for statistics / custom date parsing";
+                return "v7- Read the file line by line with a StreamReader / internal dictionary for statistics / custom date parsing";
             }
         }
 
         public void Parse(string inputFileName, string outputFileName)
         {
             StreamReader file = new StreamReader(inputFileName);
-            string line;
-            Dictionary<string, long> totalDuration = new Dictionary<string, long>();
+            ConcurrentDictionary<string, long> totalDuration = new ConcurrentDictionary<string, long>();
 
-            while ((line = file.ReadLine()) != null)
+            Parallel.ForEach(File.ReadLines(inputFileName), line =>
             {
                 string[] lineItems = line.Split(Constants.Splitter, StringSplitOptions.RemoveEmptyEntries);
 
@@ -34,13 +34,8 @@ namespace FileAnalysis.v5
 
                 long duration = (end - start).Ticks;
 
-                if (totalDuration.ContainsKey(id))
-                    totalDuration[id] += duration;
-                else
-                    totalDuration.Add(id, duration);
-            }
-
-            file.Close();
+                totalDuration.AddOrUpdate(id, duration, (_, existingDuration) => existingDuration + duration);
+            });
 
 
             using (var output = File.CreateText(outputFileName))

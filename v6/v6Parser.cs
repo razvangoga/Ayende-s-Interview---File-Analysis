@@ -14,7 +14,7 @@ namespace FileAnalysis.v6
         {
             get
             {
-                return "Read the file line by line with a StreamReader / internal dictionary for statistics / custom date parsing with custom ticks calculation";
+                return "v6- Read the file line by line with a StreamReader / internal dictionary for statistics / custom date parsing with custom ticks calculation";
             }
         }
 

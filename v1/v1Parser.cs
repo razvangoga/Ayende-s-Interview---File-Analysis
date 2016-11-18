@@ -14,7 +14,7 @@ namespace FileAnalysis.v1
         {
             get
             {
-                return "Ayende's original implementation from here : https://ayende.com/blog/176034/making-code-faster-the-interview-question";
+                return "v1 - Ayende's original implementation from here : https://ayende.com/blog/176034/making-code-faster-the-interview-question";
             }
         }
 

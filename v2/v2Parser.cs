@@ -14,7 +14,7 @@ namespace FileAnalysis.v2
         {
             get
             {
-                return "Same parser logic - optimized the string usages in the Record class";
+                return "v2 - Same parser logic - optimized the string usages in the Record class";
             }
         }
 

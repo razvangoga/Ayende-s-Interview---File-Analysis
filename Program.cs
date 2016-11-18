@@ -5,6 +5,7 @@ using FileAnalysis.v3;
 using FileAnalysis.v4;
 using FileAnalysis.v5;
 using FileAnalysis.v6;
+using FileAnalysis.v7;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -22,7 +23,7 @@ namespace FileAnalysis
         {
             if (args == null || args.Length == 0)
             {
-                Console.WriteLine("Specify the parser version : 1, 2, 3, 4, 5");
+                Console.WriteLine("Specify the parser version : 1, 2, 3, 4, 5, 6, 7");
                 return;
             }
 
@@ -88,6 +89,8 @@ namespace FileAnalysis
                     return new v5Parser();
                 case "6":
                     return new v6Parser();
+                case "7":
+                    return new v7Parser();
                 default:
                     throw new ArgumentOutOfRangeException(nameof(version), $"Unknown parser version {version}");
             }

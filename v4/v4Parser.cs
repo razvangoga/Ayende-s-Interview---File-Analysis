@@ -14,7 +14,7 @@ namespace FileAnalysis.v4
         {
             get
             {
-                return "Read the file line by line with a StreamReader / internal dictionary for statistics / parsing optimizations";
+                return "v4 - Read the file line by line with a StreamReader / internal dictionary for statistics / parsing optimizations";
             }
         }
 

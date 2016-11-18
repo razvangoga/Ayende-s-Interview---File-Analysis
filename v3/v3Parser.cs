@@ -14,7 +14,7 @@ namespace FileAnalysis.v3
         {
             get
             {
-                return "Read the file line by line with a StreamReader / internal dictionary for statistics / default .net parsing for values";
+                return "v3 - Read the file line by line with a StreamReader / internal dictionary for statistics / default .net parsing for values";
             }
         }
 
